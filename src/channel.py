@@ -51,6 +51,7 @@ class Channel:
 
     def __eq__(self, other):
         return self.subscriber_count == other.subscriber_count
+
     def print_info(self) -> None:
         """Выводит информацию о канале"""
         print(json.dumps(self.response, indent=2, ensure_ascii=False))
