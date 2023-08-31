@@ -63,6 +63,7 @@ class Channel:
     @channel_id.setter
     def channel_id(self, channel_id):
         self.__channel_id = channel_id
+
     def to_json(self, filename):
         """Сохраняет в файл значения атрибутов экземпляра Channel"""
         with open(filename, 'w', encoding='utf-8') as f:
