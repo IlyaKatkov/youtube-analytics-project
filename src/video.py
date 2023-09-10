@@ -23,7 +23,6 @@ class Video:
 
 
 class PLVideo(Video):
-
     def __init__(self, video_id: str, playlist_id: str):
         super().__init__(video_id)
         self.playlist_id = playlist_id
