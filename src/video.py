@@ -10,14 +10,21 @@ class Video:
         return build('youtube', 'v3', developerKey=cls.API_KEY)
 
     def __init__(self, video_id: str):
-        self.__video_id = video_id
+        try:
+            self.__video_id = video_id
 
-        self.response = (self.get_service().videos().list(id=self.__video_id, part='snippet,statistics').execute())
-        self.video_title: str = self.response['items'][0]['snippet']['title']
-        self.url: str = f"https://youtube/{self.__video_id}"
-        self.view_count: int = self.response['items'][0]['statistics']['viewCount']
-        self.like_count: int = self.response['items'][0]['statistics']['likeCount']
+            self.response = (self.get_service().videos().list(id=self.__video_id, part='snippet,statistics').execute())
+            self.video_title: str = self.response['items'][0]['snippet']['title']
+            self.url: str = f"https://youtube/{self.__video_id}"
+            self.view_count: int = self.response['items'][0]['statistics']['viewCount']
+            self.like_count: int = self.response['items'][0]['statistics']['likeCount']
 
+        except:
+            self.__video_id = video_id
+            self.title: str = None
+            self.url: str = None
+            self.view_count: int = None
+            self.like_count: int = None
     def __str__(self):
         return self.video_title
 
