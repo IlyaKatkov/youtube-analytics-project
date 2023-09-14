@@ -25,6 +25,7 @@ class Video:
             self.url: str = None
             self.view_count: int = None
             self.like_count: int = None
+
     def __str__(self):
         return self.video_title
 
